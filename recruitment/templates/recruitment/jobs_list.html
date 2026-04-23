@@ -2,33 +2,41 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-4">
-    <h1 class="mb-4">Available Jobs ({{ jobs.count }})</h1>
+<div class="container mt-5">
+    <div class="mb-4">
+        <h1><i class="bi bi-briefcase-fill" style="color: #7c3aed;"></i> Available Jobs</h1>
+        <p class="text-muted">{{ jobs.count }} positions available</p>
+    </div>
+
     {% if jobs %}
         <div class="row g-4">
             {% for job in jobs %}
                 <div class="col-md-6">
-                    <div class="job-card h-100">
+                    <div class="job-card">
                         <img src="{% static 'images/venue_default.jpg' %}"
                              class="img-fluid mb-3" alt="{{ job.venue_name }}"
-                             style="height: 200px; width: 100%; object-fit: cover; border-radius: 6px;">
-                        <h5 class="job-title mb-1">{{ job.title }}</h5>
-                        <p class="job-venue mb-3"><i class="bi bi-geo-alt"></i> {{ job.venue_name }}</p>
+                             style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px;">
+                        <h5 class="job-title">{{ job.title }}</h5>
+                        <p class="job-venue"><i class="bi bi-geo-alt"></i> {{ job.venue_name }}</p>
                         <div class="mb-3">
                             <span class="badge">{{ job.get_employment_type_display }}</span>
                             <span class="badge">{{ job.get_venue_type_display }}</span>
                         </div>
                         <p class="card-text text-muted small mb-3">{{ job.description|truncatewords:20 }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <p class="job-salary mb-0">€{{ job.salary }}</p>
-                            <a href="{% url 'job_detail' job.pk %}" class="btn btn-outline-light btn-sm">View Details</a>
+                            <p class="job-salary mb-0">€{{ job.salary }}/yr</p>
+                            <a href="{% url 'job_detail' job.pk %}" class="btn btn-outline-light btn-sm">
+                                <i class="bi bi-arrow-right"></i> Details
+                            </a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <div class="alert alert-info">No jobs available at the moment.</div>
+        <div class="alert alert-info mt-4">
+            <i class="bi bi-info-circle"></i> No jobs available at the moment.
+        </div>
     {% endif %}
 </div>
 {% endblock %}

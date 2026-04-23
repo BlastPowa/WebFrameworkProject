@@ -4,41 +4,45 @@
 <div class="hero-glow">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="card p-5">
+            <div class="col-md-5 col-lg-4">
+                <div class="card p-5 shadow-lg">
                     <div class="text-center mb-4">
                         <i class="bi bi-person-plus-fill" style="font-size: 2.5rem; color: #7c3aed;"></i>
                         <h2 class="mt-3">Create Account</h2>
+                        <p class="text-muted small">Join PrimeRecruit today</p>
                     </div>
                     <form method="post">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label class="form-label">Username</label>
+                            <label class="form-label"><i class="bi bi-person"></i> Username</label>
                             <input type="text" name="username" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Email</label>
+                            <label class="form-label"><i class="bi bi-envelope"></i> Email</label>
                             <input type="email" name="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
+                            <label class="form-label"><i class="bi bi-key"></i> Password</label>
                             <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Confirm Password</label>
+                            <label class="form-label"><i class="bi bi-key"></i> Confirm Password</label>
                             <input type="password" name="password2" class="form-control" required>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Role</label>
+                            <label class="form-label"><i class="bi bi-briefcase"></i> Role</label>
                             <select name="role" class="form-select" required>
+                                <option value="">Select a role...</option>
                                 <option value="candidate">Candidate</option>
                                 <option value="recruiter">Recruiter</option>
                                 <option value="manager">Manager</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mb-3">Register</button>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="bi bi-check-circle"></i> Create Account
+                        </button>
                     </form>
-                    <p class="text-center text-muted">Have account? <a href="{% url 'login' %}" style="color:#7c3aed;">Login here</a></p>
+                    <p class="text-center text-muted small">Already have an account? <a href="{% url 'login' %}" style="color:#7c3aed; font-weight:600;">Sign in</a></p>
                 </div>
             </div>
         </div>

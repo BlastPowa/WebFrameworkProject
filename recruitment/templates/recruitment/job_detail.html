@@ -3,31 +3,32 @@
 
 {% block content %}
 <div class="container mt-4">
-    <a href="{% url 'jobs_list' %}" class="btn btn-outline-light btn-sm mb-3">
+    <a href="{% url 'jobs_list' %}" class="btn btn-outline-light btn-sm mb-4">
         <i class="bi bi-arrow-left"></i> Back to Jobs
     </a>
 
-    <div class="row mb-4">
+    <div class="row">
         <div class="col-md-8">
             <img src="{% static 'images/venue_default.jpg' %}"
                  alt="{{ job.venue_name }}"
                  class="img-fluid rounded mb-4"
-                 style="max-height: 400px; width: 100%; object-fit: cover;">
+                 style="height: 350px; width: 100%; object-fit: cover; box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);">
 
             <div class="card p-4 mb-4">
                 <h1 class="mb-2">{{ job.title }}</h1>
                 <p class="text-muted mb-3">
-                    <i class="bi bi-geo-alt"></i> {{ job.venue_name }} ({{ job.get_venue_type_display }})
+                    <i class="bi bi-geo-alt"></i> {{ job.venue_name }}
+                    <span class="badge ms-2">{{ job.get_venue_type_display }}</span>
                 </p>
                 <div class="mb-3">
                     <span class="badge">{{ job.get_employment_type_display }}</span>
-                    <span class="badge" style="color: #7c3aed;">€{{ job.salary }}/year</span>
+                    <span class="job-salary ms-2">€{{ job.salary }}/year</span>
                 </div>
-                <div class="card-text">{{ job.description }}</div>
+                <div class="card-text text-muted">{{ job.description }}</div>
                 <div class="mt-4">
                     {% if user_applied %}
-                        <span class="badge" style="background: #22c55e; color: white;">
-                            <i class="bi bi-check-circle"></i> You have applied
+                        <span class="badge" style="background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #22c55e;">
+                            <i class="bi bi-check-circle-fill"></i> You have applied
                         </span>
                     {% else %}
                         {% if user.is_authenticated %}
@@ -46,44 +47,36 @@
     </div>
 
     {% if applicants %}
-        <div class="card p-4">
-            <h4 class="mb-3">
+        <div class="card p-4 mt-4">
+            <h4 class="mb-4">
                 <i class="bi bi-people-fill"></i> Applications ({{ applicants.count }})
             </h4>
-            {% if applicants %}
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Candidate</th>
+                            <th>Status</th>
+                            <th>Applied</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for app in applicants %}
                             <tr>
-                                <th>Candidate Name</th>
-                                <th>Status</th>
-                                <th>Applied Date</th>
-                                <th>Action</th>
+                                <td><strong>{{ app.candidate.first_name }} {{ app.candidate.last_name }}</strong></td>
+                                <td><span class="badge badge-{{ app.status }}">{{ app.get_status_display }}</span></td>
+                                <td>{{ app.applied_at|date:"M d, Y" }}</td>
+                                <td>
+                                    <a href="{% url 'application_update' app.pk %}" class="btn btn-sm btn-outline-light">
+                                        Update
+                                    </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for app in applicants %}
-                                <tr>
-                                    <td>
-                                        <strong>{{ app.candidate.first_name }} {{ app.candidate.last_name }}</strong>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-{{ app.status }}">
-                                            {{ app.get_status_display }}
-                                        </span>
-                                    </td>
-                                    <td>{{ app.applied_at|date:"M d, Y" }}</td>
-                                    <td>
-                                        <a href="{% url 'application_update' app.pk %}" class="btn btn-sm btn-outline-light">
-                                            Update
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     {% endif %}
 </div>
