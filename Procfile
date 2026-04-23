@@ -1,1 +1,1 @@
-web: gunicorn primerecruit.wsgi --log-file -
+web: python manage.py migrate && python manage.py seed_data && gunicorn primerecruit.wsgi --log-file -
