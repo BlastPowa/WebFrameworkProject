@@ -1,0 +1,415 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$QiJ8KMQzhvmUFUvwDIbaKW$tsDeapvV4S1Lmd9TkKDf6PDjxAL9FvwSJNbcac/mlRg=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:12.744Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Pg2VZOykni2bPgWuBZWOxd$H6q3GKjHPNtYgv3b1jdzw2usuCWB2yJ4nY7TGeQJKGo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "manager1",
+    "first_name": "",
+    "last_name": "",
+    "email": "manager1@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:13.171Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$2NZciznZFVsJbOOFT9d4LA$y3tntYx/jPIxWILoubcdDuUcCNzJTU478jkbjRfE788=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter1",
+    "first_name": "",
+    "last_name": "",
+    "email": "recruiter1@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:13.615Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$opYa5hOJ7Bzql4ZgZ4KcWR$kD0RGpods7ulEpJUXjJ7OzYFICR0kKeSiAK3HwuMd/Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "recruiter2",
+    "first_name": "",
+    "last_name": "",
+    "email": "recruiter2@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:14.055Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$IiUWtPW8PWFaItrijMMkCp$Eo4TQexDekN5Ou9znqpvMQfLsNiUMNn5XHGjOvQ4x0c=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "candidate1",
+    "first_name": "",
+    "last_name": "",
+    "email": "candidate1@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:14.502Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$KhQI7WButQuLLQ4T6RBXZk$aDr+xm/FFVtJQpUNdSDHFDe1ggQAqDniup0QXouG1Gk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "candidate2",
+    "first_name": "",
+    "last_name": "",
+    "email": "candidate2@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:14.952Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$Eb4mEqCIsRl6on1P8kEpED$uC9jXJjbrC9jUKfIJT9KKtQufK/NaMYWG3q74wIBFmY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "candidate3",
+    "first_name": "",
+    "last_name": "",
+    "email": "candidate3@primerecruit.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-04-23T19:11:15.405Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "manager1"
+    ],
+    "role": "manager",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "recruiter1"
+    ],
+    "role": "recruiter",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "recruiter2"
+    ],
+    "role": "recruiter",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "candidate1"
+    ],
+    "role": "candidate",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "candidate2"
+    ],
+    "role": "candidate",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "candidate3"
+    ],
+    "role": "candidate",
+    "phone": "",
+    "bio": ""
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Customer Service",
+    "category": "customer_service"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 2,
+  "fields": {
+    "name": "First Aid",
+    "category": "safety"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 3,
+  "fields": {
+    "name": "Lifeguarding",
+    "category": "safety"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 4,
+  "fields": {
+    "name": "Ride Operations",
+    "category": "technical"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 5,
+  "fields": {
+    "name": "Team Leadership",
+    "category": "technical"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 6,
+  "fields": {
+    "name": "Cash Handling",
+    "category": "customer_service"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 7,
+  "fields": {
+    "name": "Food Hygiene",
+    "category": "safety"
+  }
+},
+{
+  "model": "recruitment.skill",
+  "pk": 8,
+  "fields": {
+    "name": "Crowd Management",
+    "category": "physical"
+  }
+},
+{
+  "model": "recruitment.candidate",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "candidate1"
+    ],
+    "first_name": "John",
+    "last_name": "Smith",
+    "experience_years": 2,
+    "cv_summary": "Experienced",
+    "availability": "immediate",
+    "created_at": "2026-04-23T19:11:15.896Z",
+    "skills": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "recruitment.candidate",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "candidate2"
+    ],
+    "first_name": "Sarah",
+    "last_name": "Jones",
+    "experience_years": 3,
+    "cv_summary": "Skilled",
+    "availability": "two_weeks",
+    "created_at": "2026-04-23T19:11:15.913Z",
+    "skills": [
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "recruitment.candidate",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "candidate3"
+    ],
+    "first_name": "Mike",
+    "last_name": "Brown",
+    "experience_years": 1,
+    "cv_summary": "Enthusiastic",
+    "availability": "one_month",
+    "created_at": "2026-04-23T19:11:15.929Z",
+    "skills": [
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "recruitment.joblisting",
+  "pk": 1,
+  "fields": {
+    "title": "Lifeguard",
+    "venue_name": "Sunburst Holiday Park",
+    "venue_type": "holiday_park",
+    "description": "Qualified lifeguard needed at Sunburst Holiday Park",
+    "employment_type": "seasonal",
+    "salary": "28000.00",
+    "status": "open",
+    "created_by": [
+      "recruiter1"
+    ],
+    "created_at": "2026-04-23T19:11:15.945Z"
+  }
+},
+{
+  "model": "recruitment.joblisting",
+  "pk": 2,
+  "fields": {
+    "title": "Ride Operator",
+    "venue_name": "Galactic Theme Park",
+    "venue_type": "theme_park",
+    "description": "Ride operators for exciting attractions in Cork",
+    "employment_type": "full_time",
+    "salary": "25000.00",
+    "status": "open",
+    "created_by": [
+      "recruiter1"
+    ],
+    "created_at": "2026-04-23T19:11:15.954Z"
+  }
+},
+{
+  "model": "recruitment.joblisting",
+  "pk": 3,
+  "fields": {
+    "title": "Customer Host",
+    "venue_name": "Azure Beach Resort",
+    "venue_type": "resort",
+    "description": "Friendly hosts at Azure Beach Resort in Galway",
+    "employment_type": "part_time",
+    "salary": "22000.00",
+    "status": "open",
+    "created_by": [
+      "recruiter1"
+    ],
+    "created_at": "2026-04-23T19:11:15.962Z"
+  }
+},
+{
+  "model": "recruitment.joblisting",
+  "pk": 4,
+  "fields": {
+    "title": "Activity Leader",
+    "venue_name": "WildRush Adventure Park",
+    "venue_type": "adventure_park",
+    "description": "Leaders for outdoor activity programmes in Limerick",
+    "employment_type": "full_time",
+    "salary": "30000.00",
+    "status": "open",
+    "created_by": [
+      "recruiter1"
+    ],
+    "created_at": "2026-04-23T19:11:15.970Z"
+  }
+},
+{
+  "model": "recruitment.application",
+  "pk": 1,
+  "fields": {
+    "candidate": 1,
+    "job": 1,
+    "cover_letter": "I am a qualified lifeguard",
+    "status": "pending",
+    "applied_at": "2026-04-23T19:11:15.978Z"
+  }
+},
+{
+  "model": "recruitment.application",
+  "pk": 2,
+  "fields": {
+    "candidate": 2,
+    "job": 1,
+    "cover_letter": "I have first aid training",
+    "status": "shortlisted",
+    "applied_at": "2026-04-23T19:11:15.986Z"
+  }
+},
+{
+  "model": "recruitment.application",
+  "pk": 3,
+  "fields": {
+    "candidate": 3,
+    "job": 2,
+    "cover_letter": "Excited to operate rides",
+    "status": "pending",
+    "applied_at": "2026-04-23T19:11:15.995Z"
+  }
+}
+]
