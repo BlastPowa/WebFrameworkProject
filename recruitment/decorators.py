@@ -1,11 +1,4 @@
-"""
-Custom access-control decorator for role-based views.
-
-role_required ensures that the requesting user is authenticated and that the
-UserProfile.role matches one of the allowed roles. When the check fails a
-friendly "Access Denied" page is rendered with HTTP 403.
-"""
-
+# decorator for checking user role before allowing acces to a view
 from functools import wraps
 
 from django.contrib.auth.decorators import login_required
@@ -13,7 +6,6 @@ from django.shortcuts import render
 
 
 def role_required(*allowed_roles):
-    """Decorator factory that restricts a view to a set of profile roles."""
 
     def decorator(view_func):
         @wraps(view_func)
