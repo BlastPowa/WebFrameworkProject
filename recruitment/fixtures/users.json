@@ -1,0 +1,200 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Site",
+      "last_name": "Admin",
+      "email": "admin@primerecruit.ie",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-01-01T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "manager1",
+      "first_name": "Orla",
+      "last_name": "Walsh",
+      "email": "orla.walsh@primerecruit.ie",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-02T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "recruiter1",
+      "first_name": "Niamh",
+      "last_name": "Doyle",
+      "email": "niamh.doyle@primerecruit.ie",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-03T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "recruiter2",
+      "first_name": "Eoin",
+      "last_name": "Murphy",
+      "email": "eoin.murphy@primerecruit.ie",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-04T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "candidate1",
+      "first_name": "Aoife",
+      "last_name": "Byrne",
+      "email": "aoife.byrne@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-05T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "candidate2",
+      "first_name": "Cillian",
+      "last_name": "Kelly",
+      "email": "cillian.kelly@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-06T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$primerecruit$j8kYJqQmNPUtu7pJV2/oPoVKTRUlm6YgjebFat3gXt8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "candidate3",
+      "first_name": "Saoirse",
+      "last_name": "Nolan",
+      "email": "saoirse.nolan@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-07T09:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "role": "manager",
+      "phone": "+353 1 555 0102",
+      "bio": "Venue operations manager with 12 years in holiday parks.",
+      "profile_image": "",
+      "created_at": "2026-01-02T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "role": "recruiter",
+      "phone": "+353 1 555 0103",
+      "bio": "Talent specialist for seasonal and front-of-house hiring.",
+      "profile_image": "",
+      "created_at": "2026-01-03T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "role": "recruiter",
+      "phone": "+353 1 555 0104",
+      "bio": "Covers rides, operations and safety-critical roles.",
+      "profile_image": "",
+      "created_at": "2026-01-04T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 4,
+    "fields": {
+      "user": 5,
+      "role": "candidate",
+      "phone": "+353 86 555 0105",
+      "bio": "Experienced lifeguard looking for a summer season.",
+      "profile_image": "",
+      "created_at": "2026-01-05T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 5,
+    "fields": {
+      "user": 6,
+      "role": "candidate",
+      "phone": "+353 86 555 0106",
+      "bio": "Ride operator with theme park experience across Ireland.",
+      "profile_image": "",
+      "created_at": "2026-01-06T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.userprofile",
+    "pk": 6,
+    "fields": {
+      "user": 7,
+      "role": "candidate",
+      "phone": "+353 86 555 0107",
+      "bio": "Events coordinator with a warm, guest-first approach.",
+      "profile_image": "",
+      "created_at": "2026-01-07T09:00:00Z"
+    }
+  }
+]

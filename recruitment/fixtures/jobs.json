@@ -1,0 +1,104 @@
+[
+  {
+    "model": "recruitment.joblisting",
+    "pk": 1,
+    "fields": {
+      "title": "Senior Lifeguard",
+      "venue": 1,
+      "recruiter": 2,
+      "description": "Supervise the main outdoor pool at Sunburst Holiday Park over the summer season. Responsible for guest safety, team briefings and rescue drills.",
+      "salary_min": "30000.00",
+      "salary_max": "34000.00",
+      "employment_type": "seasonal",
+      "status": "open",
+      "created_at": "2026-02-01T09:00:00Z",
+      "closing_date": "2026-05-31",
+      "required_skills": [3, 2, 6]
+    }
+  },
+  {
+    "model": "recruitment.joblisting",
+    "pk": 2,
+    "fields": {
+      "title": "Guest Services Assistant",
+      "venue": 1,
+      "recruiter": 2,
+      "description": "First point of contact for arriving guests at reception. Booking queries, check-ins and general park information.",
+      "salary_min": "24000.00",
+      "salary_max": "27000.00",
+      "employment_type": "full_time",
+      "status": "open",
+      "created_at": "2026-02-05T09:00:00Z",
+      "closing_date": "2026-06-15",
+      "required_skills": [1, 8]
+    }
+  },
+  {
+    "model": "recruitment.joblisting",
+    "pk": 3,
+    "fields": {
+      "title": "Ride Operator — Orbit Coaster",
+      "venue": 2,
+      "recruiter": 3,
+      "description": "Operate Galactic's flagship coaster. Run the pre-opening safety checks, manage dispatch timing and handle guest communications.",
+      "salary_min": "26000.00",
+      "salary_max": "29000.00",
+      "employment_type": "seasonal",
+      "status": "open",
+      "created_at": "2026-02-06T09:00:00Z",
+      "closing_date": "2026-04-30",
+      "required_skills": [5, 6, 10]
+    }
+  },
+  {
+    "model": "recruitment.joblisting",
+    "pk": 4,
+    "fields": {
+      "title": "Events Coordinator",
+      "venue": 3,
+      "recruiter": 2,
+      "description": "Plan and run weekly entertainment for resort guests at Azure Beach Resort. Kids clubs, evening shows and seasonal themed events.",
+      "salary_min": "32000.00",
+      "salary_max": "38000.00",
+      "employment_type": "full_time",
+      "status": "open",
+      "created_at": "2026-02-10T09:00:00Z",
+      "closing_date": "2026-05-10",
+      "required_skills": [4, 1, 7]
+    }
+  },
+  {
+    "model": "recruitment.joblisting",
+    "pk": 5,
+    "fields": {
+      "title": "Adventure Instructor",
+      "venue": 4,
+      "recruiter": 3,
+      "description": "Lead high ropes, climbing and kayak sessions for school and corporate groups. Instructor qualifications required.",
+      "salary_min": "28000.00",
+      "salary_max": "32000.00",
+      "employment_type": "contract",
+      "status": "open",
+      "created_at": "2026-02-12T09:00:00Z",
+      "closing_date": "2026-05-20",
+      "required_skills": [11, 2, 6]
+    }
+  },
+  {
+    "model": "recruitment.joblisting",
+    "pk": 6,
+    "fields": {
+      "title": "Food and Beverage Team Member",
+      "venue": 3,
+      "recruiter": 2,
+      "description": "Join the restaurant team at Azure Beach Resort. Breakfast service, bar shifts and weekend brunches.",
+      "salary_min": "22000.00",
+      "salary_max": "25000.00",
+      "employment_type": "part_time",
+      "status": "open",
+      "created_at": "2026-02-14T09:00:00Z",
+      "closing_date": "2026-06-30",
+      "required_skills": [9, 1, 8]
+    }
+  }
+]

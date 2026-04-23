@@ -1,0 +1,101 @@
+[
+  {
+    "model": "recruitment.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Customer Service",
+      "category": "customer_service",
+      "description": "Welcoming guests and handling day-to-day queries with a smile."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 2,
+    "fields": {
+      "name": "First Aid",
+      "category": "safety",
+      "description": "Certified responder for on-site incidents and minor injuries."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 3,
+    "fields": {
+      "name": "Lifeguarding",
+      "category": "safety",
+      "description": "Pool and beach supervision with rescue certification."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 4,
+    "fields": {
+      "name": "Event Coordination",
+      "category": "management",
+      "description": "Planning and running daily entertainment programmes."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 5,
+    "fields": {
+      "name": "Ride Operations",
+      "category": "technical",
+      "description": "Safely operating attractions within manufacturer procedures."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 6,
+    "fields": {
+      "name": "Health & Safety",
+      "category": "safety",
+      "description": "Risk assessment and compliance with park safety standards."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 7,
+    "fields": {
+      "name": "Team Leadership",
+      "category": "management",
+      "description": "Leading seasonal teams and running daily shift briefings."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 8,
+    "fields": {
+      "name": "Cash Handling",
+      "category": "customer_service",
+      "description": "Accurate till work, float reconciliation and refunds."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 9,
+    "fields": {
+      "name": "Food Hygiene",
+      "category": "safety",
+      "description": "HACCP-aware food prep and service for park kitchens."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 10,
+    "fields": {
+      "name": "Crowd Management",
+      "category": "physical",
+      "description": "Queue flow, access control and peak-time guest movement."
+    }
+  },
+  {
+    "model": "recruitment.skill",
+    "pk": 11,
+    "fields": {
+      "name": "Adventure Instructing",
+      "category": "physical",
+      "description": "Leading climbing, kayaking and high-ropes activities."
+    }
+  }
+]

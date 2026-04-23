@@ -1,0 +1,103 @@
+{% extends 'recruitment/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="
+background-image:url('{% static "images/hero_banner.jpg" %}');
+background-size:cover;
+background-position:center;
+min-height:450px;">
+  <div style="
+  background:rgba(0,0,0,0.75);
+  min-height:450px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:white;
+  text-align:center;
+  padding:40px;">
+    <h1 class="display-4 fw-bold mb-3" style="
+      color:#FFFFFF;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+      font-size:3.5rem;">
+      Recruit the Best. Power Your Park.
+    </h1>
+    <p class="lead mb-4" style="
+      color:#FFFFFF;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+      font-size:1.3rem;
+      font-weight:500;">
+      Connecting leisure professionals with
+      top holiday parks, theme parks and
+      resorts across Ireland.
+    </p>
+    <div class="d-flex gap-3
+                justify-content-center">
+      <a href="{% url 'jobs_list' %}"
+         class="btn btn-primary btn-lg px-4">
+        Browse Jobs
+      </a>
+      <a href="{% url 'register' %}"
+         class="btn btn-danger btn-lg px-4">
+        Register Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">🔍</div>
+                    <h5 class="card-title">Find Talent</h5>
+                    <p class="card-text">Search a growing pool of candidates with verified skills</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">📝</div>
+                    <h5 class="card-title">Post Jobs</h5>
+                    <p class="card-text">Publish seasonal, part-time and full-time roles in minutes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">🏢</div>
+                    <h5 class="card-title">Manage Venues</h5>
+                    <p class="card-text">Oversee every venue and keep operations at full capacity</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-number">{{ total_jobs }}</div>
+                <div class="stat-label">Open Jobs</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-number">{{ total_candidates }}</div>
+                <div class="stat-label">Candidates</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <div class="stat-number">{{ total_venues }}</div>
+                <div class="stat-label">Venues</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

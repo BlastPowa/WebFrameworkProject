@@ -1,0 +1,36 @@
+{% extends 'recruitment/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Available Jobs ({{ jobs.count }})</h1>
+    {% if jobs %}
+        <div class="row g-3">
+            {% for job in jobs %}
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <img src="{% static 'images/venue_default.jpg' %}"
+                             class="card-img-top" alt="{{ job.venue_name }}"
+                             style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ job.title }}</h5>
+                            <p class="text-muted">{{ job.venue_name }}</p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary">{{ job.get_employment_type_display }}</span>
+                                <span class="badge bg-secondary">{{ job.get_venue_type_display }}</span>
+                            </div>
+                            <p class="text-muted">{{ job.description|truncatewords:20 }}</p>
+                            <div class="mt-auto">
+                                <p class="mb-3"><strong>€{{ job.salary }}</strong> per year</p>
+                                <a href="{% url 'job_detail' job.pk %}" class="btn btn-primary btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">No jobs available at the moment.</div>
+    {% endif %}
+</div>
+{% endblock %}

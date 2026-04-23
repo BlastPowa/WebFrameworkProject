@@ -1,0 +1,51 @@
+{% extends 'recruitment/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Welcome {{ user.username }}</h1>
+
+    {% if candidate %}
+    <div class="row g-3 mb-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Your Profile</h5>
+                    <p><strong>Name:</strong> {{ candidate.first_name }} {{ candidate.last_name }}</p>
+                    <p><strong>Experience:</strong> {{ candidate.experience_years }} years</p>
+                    <p><strong>Availability:</strong> {{ candidate.get_availability_display }}</p>
+                    <p><strong>Summary:</strong> {{ candidate.cv_summary }}</p>
+                    <a href="{% url 'candidate_edit' candidate.pk %}" class="btn btn-primary btn-sm">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Your Skills</h5>
+                    {% if candidate.skills.all %}
+                        <div class="mb-3">
+                            {% for skill in candidate.skills.all %}
+                                <span class="badge-skill">{{ skill.name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No skills added yet</p>
+                    {% endif %}
+                    <a href="{% url 'skills_manage' %}" class="btn btn-primary btn-sm mt-3">Manage Skills</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Next Steps</h5>
+            <div class="d-grid gap-2 d-sm-flex">
+                <a href="{% url 'my_applications' %}" class="btn btn-primary">View My Applications</a>
+                <a href="{% url 'jobs_list' %}" class="btn btn-secondary">Browse All Jobs</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

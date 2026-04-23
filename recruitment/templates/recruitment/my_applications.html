@@ -1,0 +1,32 @@
+{% extends 'recruitment/base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">My Applications</h1>
+    {% if applications %}
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Job Title</th>
+                    <th>Venue</th>
+                    <th>Status</th>
+                    <th>Date Applied</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for app in applications %}
+                    <tr>
+                        <td>{{ app.job.title }}</td>
+                        <td>{{ app.job.venue_name }}</td>
+                        <td><span class="badge bg-info">{{ app.status }}</span></td>
+                        <td>{{ app.applied_at|date:"Y-m-d" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-info">You have not applied to any jobs yet.</p>
+        <a href="{% url 'jobs_list' %}" class="btn btn-primary">Browse Jobs</a>
+    {% endif %}
+</div>
+{% endblock %}

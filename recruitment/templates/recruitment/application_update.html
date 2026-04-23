@@ -1,0 +1,36 @@
+{% extends 'recruitment/base.html' %}
+
+{% block title %}Update application — PrimeRecruit{% endblock %}
+
+{% block content %}
+<div class="pr-card p-4">
+    <h1 class="pr-page-title">Update application</h1>
+    <p>
+        <strong>Candidate:</strong> {{ application.candidate.full_name }}<br>
+        <strong>Job:</strong> {{ application.job_listing.title }}<br>
+        <strong>Current status:</strong>
+        <span class="badge {{ application.status_badge_class }}">{{ application.get_status_display }}</span>
+    </p>
+
+    <h5>Cover letter</h5>
+    <div class="pr-card p-3 mb-3" style="background:#F4F6F8;">
+        {{ application.cover_letter|linebreaks }}
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="{{ form.status.id_for_label }}" class="form-label">New status</label>
+            {{ form.status }}
+            {% for err in form.status.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+            {% if not profile.is_manager %}
+                <div class="form-text">
+                    Only managers can approve a hire. Use shortlisted or rejected.
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-pr-primary">Save</button>
+        <a href="{% url 'recruitment:job_detail' application.job_listing.pk %}" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

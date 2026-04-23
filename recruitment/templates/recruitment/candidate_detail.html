@@ -1,0 +1,67 @@
+{% extends 'recruitment/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <img src="{% static 'images/candidate_default.jpg' %}"
+                 alt="{{ candidate.first_name }} {{ candidate.last_name }}"
+                 class="img-fluid rounded mb-3"
+                 style="width: 100%; object-fit: cover; max-height: 300px;">
+        </div>
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4 h-100">
+                <h1>{{ candidate.first_name }} {{ candidate.last_name }}</h1>
+                <p class="text-muted mb-3">
+                    <strong>Experience:</strong> {{ candidate.experience_years }} years |
+                    <strong>Availability:</strong> {{ candidate.get_availability_display }}
+                </p>
+                <h5 class="mt-4">Professional Summary</h5>
+                <p>{{ candidate.cv_summary }}</p>
+
+                <h5 class="mt-4">Skills</h5>
+                <div class="mb-3">
+                    {% if candidate.skills.all %}
+                        {% for skill in candidate.skills.all %}
+                            <span class="badge-skill">{{ skill.name }}</span>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No skills listed</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if applications %}
+        <div class="card shadow-sm p-4">
+            <h4 class="card-title">Job Applications</h4>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Job Title</th>
+                            <th>Venue</th>
+                            <th>Status</th>
+                            <th>Applied Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for app in applications %}
+                            <tr>
+                                <td><strong>{{ app.job.title }}</strong></td>
+                                <td>{{ app.job.venue_name }}</td>
+                                <td><span class="badge bg-info">{{ app.get_status_display }}</span></td>
+                                <td>{{ app.applied_at|date:"M d, Y" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-info">No applications submitted yet</div>
+    {% endif %}
+</div>
+{% endblock %}

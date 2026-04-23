@@ -1,0 +1,153 @@
+/* PrimeRecruit custom theme */
+
+:root {
+    --pr-primary: #4A90D9;
+    --pr-accent:  #C0392B;
+    --pr-navbar-bg:  #BDC3C7;
+    --pr-navbar-text: #2C3E50;
+    --pr-text: #2C3E50;
+    --pr-bg: #F4F6F8;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--pr-bg);
+    color: var(--pr-text);
+}
+
+a { color: var(--pr-primary); }
+a:hover { color: #3B78B8; }
+
+/* Navbar overrides */
+.pr-navbar {
+    background-color: var(--pr-navbar-bg) !important;
+    border-bottom: 2px solid #A6ACAF;
+}
+.pr-navbar .navbar-brand {
+    color: var(--pr-primary) !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.pr-navbar .nav-link {
+    color: var(--pr-navbar-text) !important;
+    font-weight: 500;
+}
+.pr-navbar .nav-link:hover {
+    color: var(--pr-primary) !important;
+}
+
+/* Card styling */
+.pr-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(44, 62, 80, 0.08);
+}
+.pr-card:hover {
+    box-shadow: 0 4px 14px rgba(44, 62, 80, 0.14);
+}
+
+/* Blue left border accent for job listings */
+.pr-job-card {
+    border-left: 5px solid var(--pr-primary);
+}
+
+/* Accent buttons */
+.btn-pr-primary {
+    background-color: var(--pr-primary);
+    color: #ffffff;
+    border: none;
+}
+.btn-pr-primary:hover { background-color: #3B78B8; color: #ffffff; }
+
+.btn-pr-accent {
+    background-color: var(--pr-accent);
+    color: #ffffff;
+    border: none;
+}
+.btn-pr-accent:hover { background-color: #96291E; color: #ffffff; }
+
+/* Hero */
+.pr-hero {
+    background: linear-gradient(135deg, #4A90D9 0%, #2C3E50 100%);
+    color: #ffffff;
+    padding: 4rem 1rem;
+    border-radius: 0 0 12px 12px;
+    margin-bottom: 2rem;
+}
+.pr-hero h1 { font-weight: 700; }
+
+/* Feature card in red */
+.pr-feature-card {
+    background: var(--pr-accent);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-height: 170px;
+    box-shadow: 0 2px 6px rgba(44, 62, 80, 0.08);
+}
+.pr-feature-card h3 { font-weight: 700; }
+
+/* Stats bar */
+.pr-stats {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(44, 62, 80, 0.08);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.pr-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--pr-primary);
+}
+.pr-stat-label {
+    color: var(--pr-text);
+    font-size: 0.95rem;
+}
+
+/* Footer */
+footer.pr-footer {
+    background-color: var(--pr-navbar-bg);
+    color: var(--pr-navbar-text);
+    padding: 1rem;
+    margin-top: 3rem;
+    text-align: center;
+    border-top: 2px solid #A6ACAF;
+}
+
+/* Dashboard stats */
+.pr-stat-card {
+    background: var(--pr-accent);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(44, 62, 80, 0.12);
+    text-align: center;
+}
+.pr-stat-card .value {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Badges */
+.pr-badge-type {
+    background: var(--pr-primary);
+    color: #ffffff;
+}
+
+.pr-page-title {
+    border-left: 4px solid var(--pr-accent);
+    padding-left: 0.75rem;
+    margin: 1.5rem 0;
+    color: var(--pr-text);
+    font-weight: 700;
+}
+
+.pr-table th {
+    background-color: var(--pr-navbar-bg);
+    color: var(--pr-navbar-text);
+}

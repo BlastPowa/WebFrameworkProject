@@ -1,0 +1,50 @@
+[
+  {
+    "model": "recruitment.candidate",
+    "pk": 1,
+    "fields": {
+      "user_profile": 4,
+      "first_name": "Aoife",
+      "last_name": "Byrne",
+      "email": "aoife.byrne@example.com",
+      "experience_years": 4,
+      "availability": "immediate",
+      "cv_summary": "Senior lifeguard with four summers of experience across Irish holiday parks. Pool Lifeguard Qualification and Paediatric First Aid certified.",
+      "is_active": true,
+      "created_at": "2026-01-20T09:00:00Z",
+      "skills": [3, 2, 6, 1]
+    }
+  },
+  {
+    "model": "recruitment.candidate",
+    "pk": 2,
+    "fields": {
+      "user_profile": 5,
+      "first_name": "Cillian",
+      "last_name": "Kelly",
+      "email": "cillian.kelly@example.com",
+      "experience_years": 3,
+      "availability": "two_weeks",
+      "cv_summary": "Ride operator with three seasons at theme parks. Comfortable running pre-opening checks, dispatch cycles and guest comms.",
+      "is_active": true,
+      "created_at": "2026-01-22T09:00:00Z",
+      "skills": [5, 6, 10, 1]
+    }
+  },
+  {
+    "model": "recruitment.candidate",
+    "pk": 3,
+    "fields": {
+      "user_profile": 6,
+      "first_name": "Saoirse",
+      "last_name": "Nolan",
+      "email": "saoirse.nolan@example.com",
+      "experience_years": 5,
+      "availability": "one_month",
+      "cv_summary": "Events coordinator who has run programmes for over 500 guests a week. Loves building guest experiences that parents and kids both enjoy.",
+      "is_active": true,
+      "created_at": "2026-01-25T09:00:00Z",
+      "skills": [4, 7, 1, 8]
+    }
+  }
+]

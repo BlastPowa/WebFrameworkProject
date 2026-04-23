@@ -1,0 +1,39 @@
+{% extends 'recruitment/base.html' %}
+
+{% block title %}My applications — PrimeRecruit{% endblock %}
+
+{% block content %}
+<h1 class="pr-page-title">My applications</h1>
+
+{% if applications %}
+<div class="pr-card p-3">
+    <table class="table pr-table align-middle">
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Venue</th>
+                <th>Applied</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in applications %}
+                <tr>
+                    <td><a href="{% url 'recruitment:job_detail' app.job_listing.pk %}">{{ app.job_listing.title }}</a></td>
+                    <td>{{ app.job_listing.venue.name }}</td>
+                    <td>{{ app.applied_at|date:"Y-m-d" }}</td>
+                    <td><span class="badge {{ app.status_badge_class }}">{{ app.get_status_display }}</span></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="pr-card p-4 text-center text-muted">
+    You have not applied to any jobs yet.
+    <div class="mt-3">
+        <a href="{% url 'recruitment:jobs_list' %}" class="btn btn-pr-primary">Browse jobs</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

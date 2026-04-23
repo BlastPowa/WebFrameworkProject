@@ -1,0 +1,50 @@
+[
+  {
+    "model": "recruitment.application",
+    "pk": 1,
+    "fields": {
+      "candidate": 1,
+      "job_listing": 1,
+      "cover_letter": "I would love to return to Sunburst for another summer. I held the senior lifeguard post last season and completed additional rescue training over the winter.",
+      "status": "shortlisted",
+      "applied_at": "2026-02-02T09:00:00Z",
+      "updated_at": "2026-02-03T10:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.application",
+    "pk": 2,
+    "fields": {
+      "candidate": 2,
+      "job_listing": 3,
+      "cover_letter": "I have operated coasters for the last three seasons and have particular experience with launch coasters very similar to Orbit.",
+      "status": "pending",
+      "applied_at": "2026-02-07T09:00:00Z",
+      "updated_at": "2026-02-07T09:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.application",
+    "pk": 3,
+    "fields": {
+      "candidate": 3,
+      "job_listing": 4,
+      "cover_letter": "I run a year-round events programme at my current venue and would bring the same warm, guest-first approach to Azure.",
+      "status": "hired",
+      "applied_at": "2026-02-11T09:00:00Z",
+      "updated_at": "2026-02-20T12:00:00Z"
+    }
+  },
+  {
+    "model": "recruitment.application",
+    "pk": 4,
+    "fields": {
+      "candidate": 2,
+      "job_listing": 5,
+      "cover_letter": "Happy to branch into adventure instructing. I have strong safety awareness from ride ops and am working through my climbing instructor qualification.",
+      "status": "rejected",
+      "applied_at": "2026-02-13T09:00:00Z",
+      "updated_at": "2026-02-15T09:00:00Z"
+    }
+  }
+]

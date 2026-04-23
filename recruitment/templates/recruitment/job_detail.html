@@ -1,0 +1,67 @@
+{% extends 'recruitment/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <img src="{% static 'images/venue_default.jpg' %}"
+                 alt="{{ job.venue_name }}"
+                 class="img-fluid rounded mb-4"
+                 style="max-height: 400px; width: 100%; object-fit: cover;">
+
+            <div class="card shadow-sm p-4 mb-4">
+                <h1>{{ job.title }}</h1>
+                <p class="text-muted"><strong>Venue:</strong> {{ job.venue_name }} ({{ job.get_venue_type_display }})</p>
+                <div class="mb-3">
+                    <span class="badge bg-primary">{{ job.get_employment_type_display }}</span>
+                    <span class="badge bg-secondary">€{{ job.salary }} per year</span>
+                </div>
+                <p>{{ job.description }}</p>
+                <div class="mt-3">
+                    {% if user_applied %}
+                        <span class="badge bg-success p-2">You have applied</span>
+                    {% else %}
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'apply_job' job.pk %}" class="btn btn-danger">Apply Now</a>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-primary">Login to Apply</a>
+                        {% endif %}
+                    {% endif %}
+                    <a href="{% url 'jobs_list' %}" class="btn btn-secondary">Back to Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if applicants %}
+        <div class="card shadow-sm p-4">
+            <h4>Applications ({{ applicants|length }})</h4>
+            {% if applicants %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Candidate Name</th>
+                                <th>Status</th>
+                                <th>Applied Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in applicants %}
+                                <tr>
+                                    <td><strong>{{ app.candidate.first_name }} {{ app.candidate.last_name }}</strong></td>
+                                    <td><span class="badge bg-info">{{ app.get_status_display }}</span></td>
+                                    <td>{{ app.applied_at|date:"M d, Y" }}</td>
+                                    <td><a href="{% url 'application_update' app.pk %}" class="btn btn-sm btn-primary">Update Status</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
