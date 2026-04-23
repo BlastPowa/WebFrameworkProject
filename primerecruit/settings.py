@@ -33,6 +33,11 @@ ALLOWED_HOSTS = [
     'webframeworkproject-production-4851.up.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://webframeworkproject-production-4851.up.railway.app',
+    'https://*.railway.app',
+]
+
 
 # Application definition
 
