@@ -51,7 +51,7 @@ def job_create(request):
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
-        form = JobListingForm(request.POST)
+        form = JobListingForm(request.POST, request.FILES)
         if form.is_valid():
             job = form.save(commit=False)
             job.created_by = request.user
@@ -71,7 +71,7 @@ def job_edit(request, pk):
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
-        form = JobListingForm(request.POST, instance=job)
+        form = JobListingForm(request.POST, request.FILES, instance=job)
         if form.is_valid():
             form.save()
             messages.success(request, 'Job updated!')

@@ -40,11 +40,13 @@ class Candidate(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    age = models.IntegerField(default=0, blank=True)
     experience_years = models.IntegerField(default=0)
     cv_summary = models.TextField()
     availability = models.CharField(
         max_length=20, choices=AVAILABILITY_CHOICES)
     skills = models.ManyToManyField(Skill, blank=True)
+    profile_image = models.ImageField(upload_to='candidates/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -75,6 +77,7 @@ class JobListing(models.Model):
     salary = models.DecimalField(max_digits=8, decimal_places=2)
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default='open')
+    venue_image = models.ImageField(upload_to='venues/', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 

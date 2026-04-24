@@ -13,7 +13,7 @@
                 <p class="mb-2"><strong>Experience:</strong> <span class="text-muted">{{ candidate.experience_years }} years</span></p>
                 <p class="mb-2"><strong>Availability:</strong> <span class="text-muted">{{ candidate.get_availability_display }}</span></p>
                 <p class="mb-3"><strong>Summary:</strong> <span class="text-muted">{{ candidate.cv_summary }}</span></p>
-                <a href="{% url 'candidate_edit' candidate.pk %}" class="btn btn-primary btn-sm">Edit Profile</a>
+                <a href="{% url 'candidate_edit' candidate.pk %}" class="btn btn-primary btn-sm" style="color: white; background: #7c3aed; border: 1px solid #7c3aed;">Edit Profile</a>
             </div>
         </div>
         <div class="col-md-4">

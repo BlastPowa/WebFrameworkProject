@@ -35,12 +35,14 @@ class RegisterForm(forms.Form):
 class CandidateForm(forms.ModelForm):
     class Meta:
         model = Candidate
-        fields = ['first_name', 'last_name', 'experience_years',
-                  'cv_summary', 'availability']
+        fields = ['first_name', 'last_name', 'age', 'experience_years',
+                  'cv_summary', 'availability', 'profile_image']
         widgets = {
             'first_name': forms.TextInput(
                 attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(
+                attrs={'class': 'form-control'}),
+            'age': forms.NumberInput(
                 attrs={'class': 'form-control'}),
             'experience_years': forms.NumberInput(
                 attrs={'class': 'form-control'}),
@@ -48,6 +50,8 @@ class CandidateForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'rows': 4}),
             'availability': forms.Select(
                 attrs={'class': 'form-select'}),
+            'profile_image': forms.FileInput(
+                attrs={'class': 'form-control', 'accept': 'image/*'}),
         }
 
 
@@ -55,7 +59,7 @@ class JobListingForm(forms.ModelForm):
     class Meta:
         model = JobListing
         fields = ['title', 'venue_name', 'venue_type', 'description',
-                  'employment_type', 'salary', 'status']
+                  'employment_type', 'salary', 'status', 'venue_image']
         widgets = {
             'title': forms.TextInput(
                 attrs={'class': 'form-control'}),
@@ -71,16 +75,34 @@ class JobListingForm(forms.ModelForm):
                 attrs={'class': 'form-control'}),
             'status': forms.Select(
                 attrs={'class': 'form-select'}),
+            'venue_image': forms.FileInput(
+                attrs={'class': 'form-control', 'accept': 'image/*'}),
         }
 
 
 class ApplicationForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=200,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
+    age = forms.IntegerField(
+        widget=forms.NumberInput(
+            attrs={'class': 'form-control', 'placeholder': 'Age'}))
+    experience = forms.CharField(
+        max_length=500,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'Years of Experience'}))
+    skills_text = forms.CharField(
+        max_length=500,
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'Your Skills (comma separated)'}))
+
     class Meta:
         model = Application
         fields = ['cover_letter']
         widgets = {
             'cover_letter': forms.Textarea(
-                attrs={'class': 'form-control', 'rows': 5}),
+                attrs={'class': 'form-control', 'rows': 5, 'placeholder': 'Cover Letter'}),
         }
 
 

@@ -50,7 +50,7 @@
 
 {% if not user.is_authenticated %}
 <div class="container my-5">
-    <div class="row g-4 mb-5">
+    <div class="row g-4">
         <div class="col-md-4">
             <div class="feature-card">
                 <div class="feature-icon">
@@ -76,30 +76,6 @@
                 </div>
                 <h5 class="card-title">Manage Venues</h5>
                 <p class="card-text">Oversee every venue and keep operations at full capacity</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row text-center">
-        <div class="col-md-4">
-            <div class="stat-card">
-                <i class="bi bi-briefcase-fill" style="font-size: 2rem; color: #7c3aed;"></i>
-                <div class="stat-number">{{ total_jobs }}</div>
-                <div class="stat-label">Open Jobs</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="stat-card">
-                <i class="bi bi-people-fill" style="font-size: 2rem; color: #7c3aed;"></i>
-                <div class="stat-number">{{ total_candidates }}</div>
-                <div class="stat-label">Candidates</div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="stat-card">
-                <i class="bi bi-building-fill" style="font-size: 2rem; color: #7c3aed;"></i>
-                <div class="stat-number">{{ total_venues }}</div>
-                <div class="stat-label">Venues</div>
             </div>
         </div>
     </div>

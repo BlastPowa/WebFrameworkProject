@@ -78,6 +78,9 @@ def user_logout(request):
 
 @login_required
 def dashboard(request):
+    if request.user.is_superuser:
+        return redirect('dashboard_manager')
+
     profile = get_profile(request.user)
     if not profile:
         return render(request, 'recruitment/denied.html', status=403)
@@ -130,7 +133,7 @@ def dashboard_candidate(request):
 @login_required
 def dashboard_manager(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'manager':
+    if not request.user.is_superuser and (not profile or profile.role != 'manager'):
         return render(request, 'recruitment/denied.html', status=403)
 
     total_jobs = JobListing.objects.count()
@@ -148,7 +151,7 @@ def dashboard_manager(request):
 @login_required
 def candidates_list(request):
     profile = get_profile(request.user)
-    if not profile or profile.role not in ['recruiter', 'manager']:
+    if not request.user.is_superuser and (not profile or profile.role not in ['recruiter', 'manager']):
         return render(request, 'recruitment/denied.html', status=403)
 
     candidates = Candidate.objects.all()
@@ -162,7 +165,7 @@ def candidate_detail(request, pk):
     profile = get_profile(request.user)
     is_own = request.user == candidate.user
 
-    if not is_own and (not profile or
+    if not is_own and not request.user.is_superuser and (not profile or
         profile.role not in ['recruiter', 'manager']):
         return render(request, 'recruitment/denied.html', status=403)
 
@@ -186,7 +189,7 @@ def candidate_create(request):
         pass
 
     if request.method == 'POST':
-        form = CandidateForm(request.POST)
+        form = CandidateForm(request.POST, request.FILES)
         if form.is_valid():
             candidate = form.save(commit=False)
             candidate.user = request.user
@@ -205,7 +208,7 @@ def candidate_edit(request, pk):
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
-        form = CandidateForm(request.POST, instance=candidate)
+        form = CandidateForm(request.POST, request.FILES, instance=candidate)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated!')
