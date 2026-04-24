@@ -26,6 +26,8 @@ urlpatterns = [
     path('jobs/<int:pk>/edit/', job_views.job_edit, name='job_edit'),
     path('apply/<int:pk>/', job_views.apply_job, name='apply_job'),
     path('applications/', job_views.my_applications, name='my_applications'),
+    path('applications/<int:pk>/', job_views.application_detail,
+         name='application_detail'),
     path('applications/<int:pk>/update/', job_views.application_update,
          name='application_update'),
 ]

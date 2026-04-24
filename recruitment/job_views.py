@@ -133,6 +133,17 @@ def my_applications(request):
 
 
 @login_required
+def application_detail(request, pk):
+    app = get_object_or_404(Application, pk=pk)
+    profile = get_profile(request.user)
+    if app.job.created_by != request.user:
+        return render(request, 'recruitment/denied.html', status=403)
+
+    context = {'application': app}
+    return render(request, 'recruitment/application_detail.html', context)
+
+
+@login_required
 def application_update(request, pk):
     app = get_object_or_404(Application, pk=pk)
     profile = get_profile(request.user)
