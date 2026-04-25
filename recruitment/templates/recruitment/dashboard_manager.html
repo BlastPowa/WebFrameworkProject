@@ -2,47 +2,115 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4">Manager Dashboard</h1>
+    {% if is_admin %}
+        <h1 class="mb-4"><i class="bi bi-shield-fill-check"></i> Admin Dashboard</h1>
+        <p class="text-muted mb-4">Full system access — manage jobs, candidates, and applications across all recruiters.</p>
+    {% else %}
+        <h1 class="mb-4">Manager Dashboard</h1>
+    {% endif %}
 
     <div class="row g-4 mb-4">
-        <div class="col-md-4">
+        <div class="col-md-{% if is_admin %}3{% else %}4{% endif %}">
             <div class="stat-card">
                 <i class="bi bi-briefcase-fill" style="font-size: 2rem; color: #7c3aed; margin-bottom: 10px;"></i>
                 <div class="stat-number">{{ total_jobs }}</div>
                 <div class="stat-label">Total Jobs</div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-{% if is_admin %}3{% else %}4{% endif %}">
             <div class="stat-card">
                 <i class="bi bi-people-fill" style="font-size: 2rem; color: #7c3aed; margin-bottom: 10px;"></i>
                 <div class="stat-number">{{ total_candidates }}</div>
                 <div class="stat-label">Total Candidates</div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-{% if is_admin %}3{% else %}4{% endif %}">
             <div class="stat-card">
                 <i class="bi bi-check-circle-fill" style="font-size: 2rem; color: #7c3aed; margin-bottom: 10px;"></i>
                 <div class="stat-number">{{ total_hired }}</div>
                 <div class="stat-label">Total Hired</div>
             </div>
         </div>
+        {% if is_admin %}
+        <div class="col-md-3">
+            <div class="stat-card">
+                <i class="bi bi-inbox-fill" style="font-size: 2rem; color: #7c3aed; margin-bottom: 10px;"></i>
+                <div class="stat-number">{{ total_applications }}</div>
+                <div class="stat-label">Total Applications</div>
+            </div>
+        </div>
+        {% endif %}
     </div>
+
+    {% if is_admin %}
+        <div class="card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="mb-0"><i class="bi bi-list-check"></i> All Job Listings</h5>
+                <a href="{% url 'job_create' %}" class="btn btn-primary btn-sm" style="color: white; background: #7c3aed; border: 1px solid #7c3aed;">+ Post New Job</a>
+            </div>
+            {% if all_jobs %}
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Venue</th>
+                                <th>Created By</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Salary</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for job in all_jobs %}
+                                <tr>
+                                    <td><strong>{{ job.title }}</strong></td>
+                                    <td>{{ job.venue_name }}</td>
+                                    <td>{{ job.created_by.username }}</td>
+                                    <td><span class="badge">{{ job.get_employment_type_display }}</span></td>
+                                    <td><span class="badge badge-{{ job.status }}">{{ job.get_status_display }}</span></td>
+                                    <td>€{{ job.salary }}</td>
+                                    <td>
+                                        <a href="{% url 'job_detail' job.pk %}" class="btn btn-sm btn-outline-light">View</a>
+                                        <a href="{% url 'job_edit' job.pk %}" class="btn btn-sm btn-outline-light">Edit</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-info mb-0">No jobs in the system yet. <a href="{% url 'job_create' %}">Create one now</a></div>
+            {% endif %}
+        </div>
+    {% endif %}
 
     <div class="row g-4">
         <div class="col-md-6">
             <div class="card p-4">
                 <h5 class="card-title mb-2"><i class="bi bi-briefcase"></i> Job Management</h5>
-                <p class="text-muted">View and manage all job listings</p>
+                <p class="text-muted">View {% if is_admin %}and manage{% endif %} all job listings</p>
                 <a href="{% url 'jobs_list' %}" class="btn btn-primary">View All Jobs</a>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card p-4">
                 <h5 class="card-title mb-2"><i class="bi bi-people"></i> Candidate Management</h5>
-                <p class="text-muted">View and manage all candidates</p>
+                <p class="text-muted">View {% if is_admin %}and manage{% endif %} all candidates</p>
                 <a href="{% url 'candidates_list' %}" class="btn btn-primary">View All Candidates</a>
             </div>
         </div>
     </div>
+
+    {% if is_admin %}
+        <div class="card p-4 mt-4">
+            <h5 class="mb-3"><i class="bi bi-gear-fill"></i> Admin Tools</h5>
+            <p class="text-muted mb-3">Access the Django admin panel for direct database management, user role changes, and system configuration.</p>
+            <a href="/admin/" class="btn btn-outline-light">
+                <i class="bi bi-shield-lock"></i> Open Django Admin Panel
+            </a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

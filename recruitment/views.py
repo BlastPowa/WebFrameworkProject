@@ -136,14 +136,20 @@ def dashboard_manager(request):
     if not request.user.is_superuser and (not profile or profile.role != 'manager'):
         return render(request, 'recruitment/denied.html', status=403)
 
+    is_admin = request.user.is_superuser
     total_jobs = JobListing.objects.count()
     total_candidates = Candidate.objects.count()
     total_hired = Application.objects.filter(status='hired').count()
+    all_jobs = JobListing.objects.all() if is_admin else None
+    total_applications = Application.objects.count() if is_admin else 0
 
     context = {
+        'is_admin': is_admin,
         'total_jobs': total_jobs,
         'total_candidates': total_candidates,
         'total_hired': total_hired,
+        'all_jobs': all_jobs,
+        'total_applications': total_applications,
     }
     return render(request, 'recruitment/dashboard_manager.html', context)
 

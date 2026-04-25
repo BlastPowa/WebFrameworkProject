@@ -33,7 +33,7 @@ def job_detail(request, pk):
         except Candidate.DoesNotExist:
             pass
 
-        if profile and profile.role in ['recruiter', 'manager']:
+        if request.user.is_superuser or (profile and profile.role in ['recruiter', 'manager']):
             applicants = Application.objects.filter(job=job)
 
     context = {
@@ -136,7 +136,8 @@ def my_applications(request):
 def application_detail(request, pk):
     app = get_object_or_404(Application, pk=pk)
     profile = get_profile(request.user)
-    if not request.user.is_superuser and app.job.created_by != request.user:
+    is_manager = profile and profile.role == 'manager'
+    if not request.user.is_superuser and not is_manager and app.job.created_by != request.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     context = {'application': app}
@@ -147,7 +148,8 @@ def application_detail(request, pk):
 def application_update(request, pk):
     app = get_object_or_404(Application, pk=pk)
     profile = get_profile(request.user)
-    if not request.user.is_superuser and app.job.created_by != request.user:
+    is_manager = profile and profile.role == 'manager'
+    if not request.user.is_superuser and not is_manager and app.job.created_by != request.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':

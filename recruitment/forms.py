@@ -81,22 +81,6 @@ class JobListingForm(forms.ModelForm):
 
 
 class ApplicationForm(forms.ModelForm):
-    name = forms.CharField(
-        max_length=200,
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
-    age = forms.IntegerField(
-        widget=forms.NumberInput(
-            attrs={'class': 'form-control', 'placeholder': 'Age'}))
-    experience = forms.CharField(
-        max_length=500,
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Years of Experience'}))
-    skills_text = forms.CharField(
-        max_length=500,
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Your Skills (comma separated)'}))
-
     class Meta:
         model = Application
         fields = ['cover_letter']

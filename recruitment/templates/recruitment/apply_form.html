@@ -6,27 +6,14 @@
         <div class="col-md-8">
             <div class="card shadow-lg p-4">
                 <h2 class="card-title mb-4"><i class="bi bi-briefcase"></i> Apply for {{ job.title }}</h2>
+                <p class="text-muted mb-4">
+                    <i class="bi bi-info-circle"></i> Your profile information (name, experience, skills) will be sent automatically with this application. Just write your cover letter below.
+                </p>
                 <form method="post">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-person"></i> Full Name</label>
-                        <input type="text" name="name" class="form-control" placeholder="Your full name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-calendar"></i> Age</label>
-                        <input type="number" name="age" class="form-control" placeholder="Your age" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-briefcase-fill"></i> Experience</label>
-                        <input type="text" name="experience" class="form-control" placeholder="e.g., 5 years in hospitality" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-star"></i> Skills</label>
-                        <input type="text" name="skills_text" class="form-control" placeholder="e.g., Customer Service, Leadership, First Aid" required>
-                    </div>
                     <div class="mb-4">
                         <label class="form-label"><i class="bi bi-file-text"></i> Cover Letter</label>
-                        <textarea name="cover_letter" class="form-control" rows="6" placeholder="Tell us why you're a great fit for this position" required></textarea>
+                        <textarea name="cover_letter" class="form-control" rows="8" placeholder="Tell us why you're a great fit for this position" required></textarea>
                     </div>
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary" style="color: white; background: #7c3aed; border: 1px solid #7c3aed;">
