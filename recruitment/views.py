@@ -169,8 +169,10 @@ def candidate_detail(request, pk):
         profile.role not in ['recruiter', 'manager']):
         return render(request, 'recruitment/denied.html', status=403)
 
-    apps = Application.objects.filter(
-        candidate=candidate) if is_own else []
+    if is_own or request.user.is_superuser:
+        apps = Application.objects.filter(candidate=candidate)
+    else:
+        apps = []
 
     context = {'candidate': candidate, 'applications': apps}
     return render(request, 'recruitment/candidate_detail.html', context)
