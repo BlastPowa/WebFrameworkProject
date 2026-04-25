@@ -87,6 +87,21 @@ class ViewTests(TestCase):
         self.assertEqual(app.status, 'shortlisted')
 
 
+class IntegrationTests(TestCase):
+
+    def test_home_page_status_200(self):
+        response = self.client.get(reverse('home'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_jobs_list_status_200(self):
+        response = self.client.get(reverse('jobs_list'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_page_status_200(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+
+
 class FormTests(TestCase):
 
     def test_register_form_valid_data(self):
