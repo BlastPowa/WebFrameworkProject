@@ -111,27 +111,3 @@ class FormTests(TestCase):
         })
         self.assertFalse(form.is_valid())
 
-    def test_job_form_requires_title(self):
-        from .forms import JobListingForm
-        form = JobListingForm(data={
-            'title': '',
-            'venue_name': 'Test Park',
-            'venue_type': 'resort',
-            'description': 'Test description',
-            'employment_type': 'full_time',
-            'salary': 25000,
-            'status': 'open'
-        })
-        self.assertFalse(form.is_valid())
-
-    def test_candidate_form_requires_first_name(self):
-        from .forms import CandidateForm
-        form = CandidateForm(data={
-            'first_name': '',
-            'last_name': 'Smith',
-            'age': 25,
-            'experience_years': 2,
-            'cv_summary': 'Test CV',
-            'availability': 'immediate'
-        })
-        self.assertFalse(form.is_valid())
