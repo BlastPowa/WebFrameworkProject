@@ -47,7 +47,7 @@ def job_detail(request, pk):
 @login_required
 def job_create(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'recruiter':
+    if not request.user.is_superuser and (not profile or profile.role != 'recruiter'):
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
@@ -67,7 +67,7 @@ def job_create(request):
 def job_edit(request, pk):
     job = get_object_or_404(JobListing, pk=pk)
     profile = get_profile(request.user)
-    if job.created_by != request.user:
+    if not request.user.is_superuser and job.created_by != request.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
@@ -85,7 +85,7 @@ def job_edit(request, pk):
 def apply_job(request, pk):
     job = get_object_or_404(JobListing, pk=pk)
     profile = get_profile(request.user)
-    if not profile or profile.role != 'candidate':
+    if not request.user.is_superuser and (not profile or profile.role != 'candidate'):
         return render(request, 'recruitment/denied.html', status=403)
 
     try:
@@ -119,7 +119,7 @@ def apply_job(request, pk):
 @login_required
 def my_applications(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'candidate':
+    if not request.user.is_superuser and (not profile or profile.role != 'candidate'):
         return render(request, 'recruitment/denied.html', status=403)
 
     try:
@@ -136,7 +136,7 @@ def my_applications(request):
 def application_detail(request, pk):
     app = get_object_or_404(Application, pk=pk)
     profile = get_profile(request.user)
-    if app.job.created_by != request.user:
+    if not request.user.is_superuser and app.job.created_by != request.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     context = {'application': app}
@@ -147,7 +147,7 @@ def application_detail(request, pk):
 def application_update(request, pk):
     app = get_object_or_404(Application, pk=pk)
     profile = get_profile(request.user)
-    if app.job.created_by != request.user:
+    if not request.user.is_superuser and app.job.created_by != request.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':

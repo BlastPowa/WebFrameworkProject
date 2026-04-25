@@ -97,7 +97,7 @@ def dashboard(request):
 @login_required
 def dashboard_recruiter(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'recruiter':
+    if not request.user.is_superuser and (not profile or profile.role != 'recruiter'):
         return render(request, 'recruitment/denied.html', status=403)
 
     my_jobs = JobListing.objects.filter(created_by=request.user)
@@ -118,7 +118,7 @@ def dashboard_recruiter(request):
 @login_required
 def dashboard_candidate(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'candidate':
+    if not request.user.is_superuser and (not profile or profile.role != 'candidate'):
         return render(request, 'recruitment/denied.html', status=403)
 
     try:
@@ -179,7 +179,7 @@ def candidate_detail(request, pk):
 @login_required
 def candidate_create(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'candidate':
+    if not request.user.is_superuser and (not profile or profile.role != 'candidate'):
         return render(request, 'recruitment/denied.html', status=403)
 
     try:
@@ -204,7 +204,7 @@ def candidate_create(request):
 @login_required
 def candidate_edit(request, pk):
     candidate = get_object_or_404(Candidate, pk=pk)
-    if request.user != candidate.user:
+    if not request.user.is_superuser and request.user != candidate.user:
         return render(request, 'recruitment/denied.html', status=403)
 
     if request.method == 'POST':
@@ -221,7 +221,7 @@ def candidate_edit(request, pk):
 @login_required
 def skills_manage(request):
     profile = get_profile(request.user)
-    if not profile or profile.role != 'candidate':
+    if not request.user.is_superuser and (not profile or profile.role != 'candidate'):
         return render(request, 'recruitment/denied.html', status=403)
 
     try:

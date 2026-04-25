@@ -11,12 +11,14 @@
 <div class="container my-5">
     <div class="row mb-5">
         <div class="col-md-10 mx-auto">
-            <h2 class="mb-4">Our Mission</h2>
-            <p class="lead text-muted">
-                PrimeRecruit connects talented leisure professionals with the best holiday parks,
-                theme parks, and resorts across Ireland. We're dedicated to building strong teams
-                that create unforgettable guest experiences.
-            </p>
+            <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; padding: 2rem;">
+                <h2 class="mb-4 text-white">Our Mission</h2>
+                <p class="lead" style="color: #e8e8e8;">
+                    PrimeRecruit connects talented leisure professionals with the best holiday parks,
+                    theme parks, and resorts across Ireland. We're dedicated to building strong teams
+                    that create unforgettable guest experiences.
+                </p>
+            </div>
         </div>
     </div>
 
@@ -52,32 +54,36 @@
 
     <div class="row mb-5">
         <div class="col-md-10 mx-auto">
-            <h2 class="mb-4">Why Choose PrimeRecruit?</h2>
-            <ul class="list-unstyled">
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Dedicated to leisure industry recruitment</li>
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Access to pre-screened candidates with verified skills</li>
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Easy job posting and application management</li>
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Support for seasonal, part-time, and full-time positions</li>
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Manager oversight for multi-venue operations</li>
-                <li class="mb-3"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Fast, reliable placement service across Ireland</li>
-            </ul>
+            <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; padding: 2rem;">
+                <h2 class="mb-4 text-white">Why Choose PrimeRecruit?</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Dedicated to leisure industry recruitment</li>
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Access to pre-screened candidates with verified skills</li>
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Easy job posting and application management</li>
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Support for seasonal, part-time, and full-time positions</li>
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Manager oversight for multi-venue operations</li>
+                    <li class="mb-3" style="color: #e8e8e8;"><i class="bi bi-check-circle-fill" style="color: #7c3aed; margin-right: 0.75rem;"></i>Fast, reliable placement service across Ireland</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-10 mx-auto text-center">
-            <h2 class="mb-4">Ready to Find Your Next Team Member?</h2>
-            <div class="d-flex gap-3 justify-content-center mb-4">
-                <a href="{% url 'jobs_list' %}" class="btn btn-primary">
-                    <i class="bi bi-briefcase"></i> Browse Jobs
-                </a>
-                <a href="{% url 'register' %}" class="btn btn-outline-light">
-                    <i class="bi bi-person-plus"></i> Join Now
+            <div style="background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; padding: 2rem;">
+                <h2 class="mb-4 text-white">Ready to Find Your Next Team Member?</h2>
+                <div class="d-flex gap-3 justify-content-center mb-4">
+                    <a href="{% url 'jobs_list' %}" class="btn btn-primary">
+                        <i class="bi bi-briefcase"></i> Browse Jobs
+                    </a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-light">
+                        <i class="bi bi-person-plus"></i> Join Now
+                    </a>
+                </div>
+                <a href="{% url 'home' %}" class="btn btn-outline-light">
+                    <i class="bi bi-arrow-left"></i> Go Back
                 </a>
             </div>
-            <a href="{% url 'home' %}" class="btn btn-outline-light">
-                <i class="bi bi-arrow-left"></i> Go Back
-            </a>
         </div>
     </div>
 </div>
